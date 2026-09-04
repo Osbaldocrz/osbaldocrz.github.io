@@ -1,9 +1,11 @@
-// FECHA EN LA QUE COMENZÓ LA RELACIÓN
+// =========================================
+// CONTADOR DE TIEMPO
+// =========================================
+
 const fechaInicio = new Date("2020-08-01T00:00:00");
 
 function actualizarContador() {
     const ahora = new Date();
-
     let diferencia = ahora - fechaInicio;
 
     let segundos = Math.floor(diferencia / 1000);
@@ -22,35 +24,31 @@ function actualizarContador() {
     document.getElementById("anos").textContent = anos;
     document.getElementById("meses").textContent = meses;
     document.getElementById("dias").textContent = dias;
-    document.getElementById("horas").textContent =
-        String(horas).padStart(2, "0");
-    document.getElementById("minutos").textContent =
-        String(minutos).padStart(2, "0");
-    document.getElementById("segundos").textContent =
-        String(segundos).padStart(2, "0");
+    document.getElementById("horas").textContent = String(horas).padStart(2, "0");
+    document.getElementById("minutos").textContent = String(minutos).padStart(2, "0");
+    document.getElementById("segundos").textContent = String(segundos).padStart(2, "0");
 }
 
 setInterval(actualizarContador, 1000);
 actualizarContador();
 
 
-// CAMBIAR A RECUERDOS
+// =========================================
+// CAMBIAR DE SECCIÓN
+// =========================================
+
 function mostrarRecuerdos() {
     document.getElementById("inicio").classList.remove("activa");
     document.getElementById("carta").classList.remove("activa");
     document.getElementById("recuerdos").classList.add("activa");
 }
 
-
-// CAMBIAR A CARTA
 function mostrarCarta() {
     document.getElementById("inicio").classList.remove("activa");
     document.getElementById("recuerdos").classList.remove("activa");
     document.getElementById("carta").classList.add("activa");
 }
 
-
-// VOLVER AL INICIO
 function volverInicio() {
     document.getElementById("recuerdos").classList.remove("activa");
     document.getElementById("carta").classList.remove("activa");
@@ -58,11 +56,15 @@ function volverInicio() {
 }
 
 
+// =========================================
 // CORAZONES FLOTANTES
+// =========================================
+
 function crearCorazon() {
     const contenedor = document.getElementById("corazones");
 
     const corazon = document.createElement("div");
+
     corazon.className = "corazon";
     corazon.innerHTML = "♥";
 
@@ -80,7 +82,10 @@ function crearCorazon() {
 setInterval(crearCorazon, 400);
 
 
-// REPRODUCIR MÚSICA
+// =========================================
+// MÚSICA
+// =========================================
+
 function reproducirMusica() {
     const musica = document.getElementById("musicaFondo");
     const boton = document.getElementById("botonMusica");
@@ -89,16 +94,156 @@ function reproducirMusica() {
     const disco = document.querySelector(".disco");
 
     if (musica.paused) {
+
         musica.play();
 
         texto.textContent = "PAUSAR MÚSICA";
         icono.textContent = "Ⅱ";
+
         disco.classList.add("girando");
+
     } else {
+
         musica.pause();
 
         texto.textContent = "REPRODUCIR MÚSICA";
         icono.textContent = "▶";
+
         disco.classList.remove("girando");
     }
 }
+
+
+// =========================================
+// GALERÍA DE 20 FOTOS
+// =========================================
+
+const fotos = [
+    "img/foto1.jpg",
+    "img/foto2.jpg",
+    "img/foto3.jpg",
+    "img/foto4.jpg",
+    "img/foto5.jpg",
+    "img/foto6.jpg",
+    "img/foto7.jpg",
+    "img/foto8.jpg",
+    "img/foto9.jpg",
+    "img/foto10.jpg",
+    "img/foto11.jpg",
+    "img/foto12.jpg",
+    "img/foto13.jpg",
+    "img/foto14.jpg",
+    "img/foto15.jpg",
+    "img/foto16.jpg",
+    "img/foto17.jpg",
+    "img/foto18.jpg",
+    "img/foto19.jpg",
+    "img/foto20.jpg"
+];
+
+let fotoActual = 0;
+
+
+// =========================================
+// ABRIR FOTO
+// =========================================
+
+function abrirFoto(numero) {
+
+    fotoActual = numero;
+
+    const visor = document.getElementById("visorFotos");
+
+    visor.classList.add("activo");
+
+    mostrarFoto();
+
+    document.body.style.overflow = "hidden";
+}
+
+
+// =========================================
+// MOSTRAR FOTO
+// =========================================
+
+function mostrarFoto() {
+
+    const imagen = document.getElementById("imagenGrande");
+    const numero = document.getElementById("numeroFoto");
+
+    imagen.src = fotos[fotoActual];
+
+    numero.textContent = (fotoActual + 1) + " / " + fotos.length;
+}
+
+
+// =========================================
+// FOTO SIGUIENTE
+// =========================================
+
+function fotoSiguiente() {
+
+    fotoActual++;
+
+    if (fotoActual >= fotos.length) {
+        fotoActual = 0;
+    }
+
+    mostrarFoto();
+}
+
+
+// =========================================
+// FOTO ANTERIOR
+// =========================================
+
+function fotoAnterior() {
+
+    fotoActual--;
+
+    if (fotoActual < 0) {
+        fotoActual = fotos.length - 1;
+    }
+
+    mostrarFoto();
+}
+
+
+// =========================================
+// CERRAR FOTO
+// =========================================
+
+function cerrarFoto() {
+
+    const visor = document.getElementById("visorFotos");
+
+    visor.classList.remove("activo");
+
+    document.body.style.overflow = "";
+}
+
+
+// =========================================
+// TECLADO
+// =========================================
+
+document.addEventListener("keydown", function(event) {
+
+    const visor = document.getElementById("visorFotos");
+
+    if (!visor.classList.contains("activo")) {
+        return;
+    }
+
+    if (event.key === "ArrowRight") {
+        fotoSiguiente();
+    }
+
+    if (event.key === "ArrowLeft") {
+        fotoAnterior();
+    }
+
+    if (event.key === "Escape") {
+        cerrarFoto();
+    }
+});

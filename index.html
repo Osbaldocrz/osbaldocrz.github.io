@@ -12,15 +12,22 @@
 
 <body>
 
+    <!-- FONDO DE CORAZONES -->
     <div class="fondo-corazones"></div>
 
+
+    <!-- ENCABEZADO -->
     <header>
         <h2>NOBODY ESSENCE</h2>
     </header>
 
+
     <main>
 
-        <!-- INICIO -->
+        <!-- =========================================
+             INICIO
+             ========================================= -->
+
         <section id="inicio" class="pantalla activa">
 
             <h1>Nuestro Tiempo Juntos</h1>
@@ -59,6 +66,7 @@
 
             </div>
 
+
             <div class="botones">
 
                 <button onclick="mostrarRecuerdos()">
@@ -71,22 +79,107 @@
 
             </div>
 
-
         </section>
 
 
-        <!-- RECUERDOS -->
+
+        <!-- =========================================
+             RECUERDOS - 20 FOTOS
+             ========================================= -->
+
         <section id="recuerdos" class="pantalla">
 
-            <h1>Recuerdos</h1>
+            <h1>Recuerdos ❤️</h1>
+
+            <p class="subtitulo-recuerdos">
+                Cada foto guarda un momento que quiero recordar contigo.
+            </p>
+
 
             <div class="galeria">
 
-                <img src="img/foto1.jpg">
-                <img src="img/foto2.jpg">
-                <img src="img/foto3.jpg">
+                <div class="foto">
+                    <img src="img/foto1.jpg" onclick="abrirFoto(0)" alt="Recuerdo 1">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto2.jpg" onclick="abrirFoto(1)" alt="Recuerdo 2">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto3.jpg" onclick="abrirFoto(2)" alt="Recuerdo 3">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto4.jpg" onclick="abrirFoto(3)" alt="Recuerdo 4">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto5.jpg" onclick="abrirFoto(4)" alt="Recuerdo 5">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto6.jpg" onclick="abrirFoto(5)" alt="Recuerdo 6">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto7.jpg" onclick="abrirFoto(6)" alt="Recuerdo 7">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto8.jpg" onclick="abrirFoto(7)" alt="Recuerdo 8">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto9.jpg" onclick="abrirFoto(8)" alt="Recuerdo 9">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto10.jpg" onclick="abrirFoto(9)" alt="Recuerdo 10">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto11.jpg" onclick="abrirFoto(10)" alt="Recuerdo 11">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto12.jpg" onclick="abrirFoto(11)" alt="Recuerdo 12">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto13.jpg" onclick="abrirFoto(12)" alt="Recuerdo 13">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto14.jpg" onclick="abrirFoto(13)" alt="Recuerdo 14">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto15.jpg" onclick="abrirFoto(14)" alt="Recuerdo 15">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto16.jpg" onclick="abrirFoto(15)" alt="Recuerdo 16">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto17.jpg" onclick="abrirFoto(16)" alt="Recuerdo 17">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto18.jpg" onclick="abrirFoto(17)" alt="Recuerdo 18">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto19.jpg" onclick="abrirFoto(18)" alt="Recuerdo 19">
+                </div>
+
+                <div class="foto">
+                    <img src="img/foto20.jpg" onclick="abrirFoto(19)" alt="Recuerdo 20">
+                </div>
 
             </div>
+
 
             <button onclick="volverInicio()">
                 VOLVER
@@ -95,7 +188,11 @@
         </section>
 
 
-        <!-- CARTA -->
+
+        <!-- =========================================
+             CARTA
+             ========================================= -->
+
         <section id="carta" class="pantalla">
 
             <h1>Para Ti ❤️</h1>
@@ -118,6 +215,7 @@
 
             </div>
 
+
             <button onclick="volverInicio()">
                 VOLVER
             </button>
@@ -126,27 +224,100 @@
 
     </main>
 
-    <script src="script.js"></script>
+
+
+    <!-- =========================================
+         VISOR DE FOTOS GRANDES
+         ========================================= -->
+
+    <div id="visorFotos" class="visor">
+
+        <button class="cerrar-visor" onclick="cerrarFoto()">
+            ×
+        </button>
+
+
+        <button class="flecha izquierda" onclick="fotoAnterior()">
+            ‹
+        </button>
+
+
+        <div class="foto-grande">
+
+            <img
+                id="imagenGrande"
+                src=""
+                alt="Recuerdo"
+            >
+
+            <div id="numeroFoto" class="numero-foto">
+                1 / 20
+            </div>
+
+        </div>
+
+
+        <button class="flecha derecha" onclick="fotoSiguiente()">
+            ›
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================================
+         CORAZONES ANIMADOS
+         ========================================= -->
 
     <div id="corazones"></div>
 
-    <!-- REPRODUCTOR DE MÚSICA -->
+
+
+    <!-- =========================================
+         REPRODUCTOR DE MÚSICA
+         ========================================= -->
+
     <div class="reproductor">
 
-        <button id="botonMusica" onclick="reproducirMusica()">
-            <span class="icono-musica">▶</span>
-            <span id="textoMusica">REPRODUCIR MÚSICA</span>
+        <button
+            id="botonMusica"
+            onclick="reproducirMusica()"
+        >
+
+            <span class="icono-musica">
+                ▶
+            </span>
+
+            <span id="textoMusica">
+                REPRODUCIR MÚSICA
+            </span>
+
         </button>
 
+
         <div class="disco">
-        ♪
+            ♪
         </div>
 
     </div>
 
-<audio id="musicaFondo" loop>
-    <source src="musica/cancion.mp3" type="audio/mpeg">
-</audio>
+
+    <!-- MÚSICA -->
+
+    <audio id="musicaFondo" loop>
+
+        <source
+            src="musica/cancion.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -2,7 +2,7 @@
 // CONTADOR DE TIEMPO
 // =========================================
 
-const fechaInicio = new Date("2020-08-01T00:00:00");
+const fechaInicio = new Date("2006-11-30T00:00:00");
 
 function actualizarContador() {
     const ahora = new Date();

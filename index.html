@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Ti ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="fondo-corazones"></div>
+
+    <header>
+        <h2>NOBODY ESSENCE</h2>
+    </header>
+
+    <main>
+
+        <!-- INICIO -->
+        <section id="inicio" class="pantalla activa">
+
+            <h1>Nuestro Tiempo Juntos</h1>
+
+            <div class="contador">
+
+                <div class="tiempo">
+                    <span id="anos">0</span>
+                    <small>AÑOS</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="meses">0</span>
+                    <small>MESES</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="dias">0</span>
+                    <small>DÍAS</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="horas">0</span>
+                    <small>HORAS</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="minutos">0</span>
+                    <small>MIN</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="segundos">0</span>
+                    <small>SEG</small>
+                </div>
+
+            </div>
+
+            <div class="botones">
+
+                <button onclick="mostrarRecuerdos()">
+                    VER RECUERDOS
+                </button>
+
+                <button onclick="mostrarCarta()">
+                    LEER CARTA
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- RECUERDOS -->
+        <section id="recuerdos" class="pantalla">
+
+            <h1>Recuerdos</h1>
+
+            <div class="galeria">
+
+                <img src="img/foto1.jpg">
+                <img src="img/foto2.jpg">
+                <img src="img/foto3.jpg">
+
+            </div>
+
+            <button onclick="volverInicio()">
+                VOLVER
+            </button>
+
+        </section>
+
+
+        <!-- CARTA -->
+        <section id="carta" class="pantalla">
+
+            <h1>Para Ti ❤️</h1>
+
+            <div class="carta-contenido">
+
+                <p>
+                    Desde que llegaste a mi vida,
+                    todo cambió para mejor.
+                </p>
+
+                <p>
+                    Gracias por cada momento,
+                    cada sonrisa y cada recuerdo.
+                </p>
+
+                <p>
+                    Te quiero muchísimo ❤️
+                </p>
+
+            </div>
+
+            <button onclick="volverInicio()">
+                VOLVER
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <div id="corazones"></div>
+
+    <!-- REPRODUCTOR DE MÚSICA -->
+    <div class="reproductor">
+
+        <button id="botonMusica" onclick="reproducirMusica()">
+            <span class="icono-musica">▶</span>
+            <span id="textoMusica">REPRODUCIR MÚSICA</span>
+        </button>
+
+        <div class="disco">
+        ♪
+        </div>
+
+    </div>
+
+<audio id="musicaFondo" loop>
+    <source src="musica/cancion.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
